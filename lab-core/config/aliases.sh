@@ -1,0 +1,1 @@
+alias lab-start='bash ~/hormigasais-lab/lab-core/start.sh'
