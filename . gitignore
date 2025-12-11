@@ -1,0 +1,5 @@
+*.lesshst
+*.gitconfig
+*.swp
+*.tmp
+*.bak
