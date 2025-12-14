@@ -1,16 +1,29 @@
 {
-  "name": "HormigasAIS Lab Environment",
-  // ... otras configuraciones (image, features, settings, etc.)
+  "name": "HormigasAIS-LAB Dev Container",
+  
+  // Puedes usar una imagen base de Linux o Python aquí:
+  // (Ejemplo: una imagen base de Ubuntu con Python)
+  "image": "mcr.microsoft.com/devcontainers/python:3.10", 
 
-  // Sección clave para definir variables de entorno persistentes:
+  // Configuración de las variables de entorno
+  // ESTAS DEBEN COINCIDIR con lo que pusiste en el YAML de Actions.
   "containerEnv": {
     "LAB_PATH": "/home/usuario/hormigasais-lab",
     "LAB_PYTHON": "python3"
   },
 
-  // Si necesitas que los comandos de post-creación se ejecuten, verifica:
-  // (Aunque la mayoría de las dependencias ya están pre-construidas por XOXO)
-  "postCreateCommand": "echo 'Dev Container listo en ${LAB_PATH}'",
-
-  // ... el resto de tu configuración
+  // Comando para asegurar que las dependencias de Python estén instaladas
+  // (Aunque XOXO las pre-instala, es buena práctica tener el comando aquí por si acaso)
+  "postCreateCommand": "${containerEnv.LAB_PYTHON} -m pip install -r requirements.txt",
+  
+  // Puertos, extensiones de VS Code, etc.
+  "forwardPorts": [],
+  "customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": [
+        "ms-python.python"
+      ]
+    }
+  }
 }
