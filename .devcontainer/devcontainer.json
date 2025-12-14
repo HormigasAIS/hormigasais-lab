@@ -1,0 +1,16 @@
+{
+  "name": "HormigasAIS Lab Environment",
+  // ... otras configuraciones (image, features, settings, etc.)
+
+  // Sección clave para definir variables de entorno persistentes:
+  "containerEnv": {
+    "LAB_PATH": "/home/usuario/hormigasais-lab",
+    "LAB_PYTHON": "python3"
+  },
+
+  // Si necesitas que los comandos de post-creación se ejecuten, verifica:
+  // (Aunque la mayoría de las dependencias ya están pre-construidas por XOXO)
+  "postCreateCommand": "echo 'Dev Container listo en ${LAB_PATH}'",
+
+  // ... el resto de tu configuración
+}
